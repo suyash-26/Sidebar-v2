@@ -10,9 +10,18 @@ import { Link } from 'react-router-dom';
 
 export default function Navbar() {
     const [sidebar,setSidebar] = useState(false);
+
+    //   to highlight active tab
+    const [activeTab,setActiveTab] = useState(0);
+
     const showSidebar = ()=>{
         setSidebar(!sidebar);
     }
+    const handleTab = (key)=>{
+        setActiveTab(key);
+    }
+      
+
   return (
     <>
     <IconContext.Provider value={{color:"white"}}>
@@ -28,25 +37,25 @@ export default function Navbar() {
                         <IoIcons.IoMdClose/>
                     </Link>
                     </li>
-                    <li className='nav-text'>
+                    <li key={0} className={activeTab===0?'nav-text active-tab':'nav-text'} onClick={()=>handleTab(0)}>
                         <Link to="/">
                             <FaHome/>
                             <span>Home</span>
                         </Link>
                     </li>
-                    <li className='nav-text'>
+                    <li key={1} className={activeTab===1?'nav-text active-tab':'nav-text'} onClick={()=>handleTab(1)}>
                         <Link to="/contact">
                             <IoIcons.IoMdContacts/>
                             <span>Contact</span>
                         </Link>
                     </li>
-                    <li className='nav-text'>
+                    <li key={2} className={activeTab===2?'nav-text active-tab':'nav-text'} onClick={()=>handleTab(2)}>
                         <Link to="/about">
                             <IoIcons.IoIosInformationCircleOutline />
                             <span>About Us</span>
                         </Link>
                     </li>
-                    <li className='nav-text'>
+                    <li key={3} className={activeTab===3?'nav-text active-tab':'nav-text'} onClick={()=>handleTab(3)}>
                         <Link to="/services">
                             <FaProductHunt />
                             <span>Services</span>

@@ -62,6 +62,11 @@
     transition: 1s;
 }
 
+.active-tab a{
+    background-color: aqua;
+    transition: 1s;
+}
+
 .nav-text span{
     padding-left: 10px;
 }
